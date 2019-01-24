@@ -24,8 +24,8 @@ class CreateReader extends FormRequest
     public function rules()
     {
         return [
-            'nick' => 'required|min:3|max:100',
-            'book' => 'required|max:255'
+            'nick' => 'required|min:3|max:100|regex:/[a-zA-Z0-9]+/i',
+            'book' => 'required|max:255|regex:/[a-zA-Z0-9]+/i'
         ];
     }
 
@@ -40,8 +40,10 @@ class CreateReader extends FormRequest
             'nick.required' => __('Prosimy o uzupenienie pola Nick'),
             'nick.min' => __('Nick powinien zawierać minimalnie 3 znaki'),
             'nick.max' => __('Nick powinien zawierać maksymalnie 100 znaków'),
+            'nick.regex' => __('Wartość wpisana w polu Nick jest niepoprawna'),
             'book.required'  => __('Prosimy o uzupenienie pola książka'),
             'book.max'  => __('Książka powinna zawierać maksymaline 255 znaków'),
+            'book.regex'  => __('Wartość wpisana w polu Książka jest niepoprawna'),
         ];
     }
 }
