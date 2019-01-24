@@ -26,6 +26,6 @@ DB_PASSWORD=secret
 ## 4. Migracja tabel bazy danych
 ```sh
 $ php artisan migrate
-``
+```
 
 ## 5. Uruchomienie
