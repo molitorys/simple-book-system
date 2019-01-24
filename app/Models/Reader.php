@@ -28,6 +28,11 @@ class Reader extends Model
         return $this->hasMany(\App\Models\Book::class);
     }
 
+    /**
+     * Latest book relation
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function latestBook()
     {
         return $this->hasOne(\App\Models\Book::class)->orderBy('added_at', 'DESC');   
@@ -55,6 +60,12 @@ class Reader extends Model
         return route('reader', ['slug' => $this->nick_slug, 'id' => $this->id]);
     }
 
+    /**
+     * Check if reader slug match given slug in attribute
+     *
+     * @param string $slug
+     * @return boolean
+     */
     public function isSlugCorrect(string $slug)
     {
         return $this->nick_slug === $slug; 
