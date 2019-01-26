@@ -19,7 +19,7 @@ class ReaderBookUnique
     public function validate(string $attribute, $value, array $parameters, Validator $validator): bool
     {
         $nick = array_get($validator->getData(), 'nick');
-        if (!$nick && !empty($value)) {
+        if (!$nick || empty($value)) {
             return true;
         }
 
