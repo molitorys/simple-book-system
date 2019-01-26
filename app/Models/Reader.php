@@ -82,7 +82,7 @@ class Reader extends Model
         $reader = self::firstOrCreate(['nick' => $data['nick']]);
 
         if ($reader && array_get($data, 'book')) {
-            $reader->books()->create([
+            $reader->books()->firstOrCreate([
                 'title' => $data['book']
             ]);
         }

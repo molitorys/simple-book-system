@@ -25,7 +25,7 @@ class CreateReader extends FormRequest
     {
         return [
             'nick' => 'required|min:3|max:100|regex:/[a-zA-Z0-9]+/i',
-            'book' => 'required|max:255|regex:/[a-zA-Z0-9]+/i'
+            'book' => 'required|max:255|regex:/[a-zA-Z0-9]+/i|reader_book_unique'
         ];
     }
 
@@ -44,6 +44,7 @@ class CreateReader extends FormRequest
             'book.required'  => __('Prosimy o uzupenienie pola książka'),
             'book.max'  => __('Książka powinna zawierać maksymaline 255 znaków'),
             'book.regex'  => __('Wartość wpisana w polu Książka jest niepoprawna'),
+            'book.reader_book_unique' => __('Czytelnik już posiada tą książkę'),
         ];
     }
 }
